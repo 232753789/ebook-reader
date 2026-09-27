@@ -1,0 +1,109 @@
+/* EPUB chapter: a centered reading column in the theme's ink and surface colors. The publisher's
+   stylesheets are not applied, so these rules own the chapter typography. */
+
+.scroller {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  outline: none;
+  background: var(--dsw-alias-bg-base);
+}
+
+.status {
+  margin: 48px auto;
+  text-align: center;
+  font-size: 14px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.page {
+  max-width: 44em;
+  margin: 0 auto;
+  padding: 32px 40px 48px;
+  box-sizing: border-box;
+  color: var(--dsw-alias-label-primary);
+  line-height: 1.85;
+}
+
+.article {
+  position: relative;
+}
+
+.content {
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+.content :global(img),
+.content :global(svg) {
+  max-width: 100%;
+  height: auto;
+}
+
+.content :global(h1),
+.content :global(h2),
+.content :global(h3),
+.content :global(h4) {
+  line-height: 1.4;
+  margin: 1.4em 0 0.8em;
+}
+
+.content :global(p) {
+  margin: 0 0 0.9em;
+}
+
+.content :global(a) {
+  color: var(--dsw-alias-state-business-primary);
+}
+
+.content :global(blockquote) {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 3px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-secondary);
+}
+
+.content :global(pre) {
+  white-space: pre-wrap;
+}
+
+/* The reading line: a translucent accent band under the chapter text. */
+.line {
+  position: absolute;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 20%, transparent);
+  box-shadow: inset 3px 0 0 var(--dsw-alias-state-business-primary);
+  pointer-events: none;
+  transition: top 120ms var(--ds-ease-in-out), height 120ms var(--ds-ease-in-out);
+}
+
+.chapterNav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dsw-alias-border-l1);
+}
+
+.chapterNav button {
+  padding: 6px 14px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 10px;
+  background: var(--dsw-alias-button-elevated-fill);
+  color: var(--dsw-alias-label-primary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.chapterNav button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    transition: none;
+  }
+}

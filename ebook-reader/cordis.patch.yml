@@ -1,0 +1,23 @@
+# Install this optional bundle after dsh-web-app. The row is absent from the
+# shipped Web profile until `dsh plugin --profile web add <package>` adds this
+# package to that profile's bundle list.
+- insert:
+    - id: ebook-reader
+      name: '@deepseek-ai/dsh-ebook-reader'
+      config:
+        libraryRoot: ~/Documents/Books
+        storageRoot: !!js dshHomePath('ebook-reader')
+        listMaxBooks: 2000
+        speechMode: 'off'
+        speechModelPath: !!js dshHomePath('models', 'Qwen3-TTS-12Hz-1.7B-CustomVoice')
+        pythonExecutable: python3
+        speechDevice: auto
+        speechLanguage: Auto
+        speechMaxSegmentChars: 120
+        speechPrefetchParagraphs: 1
+        speechMaxRequestSegments: 24
+        speechDecoding: talker-sampled
+        speechSegmentGapMs: 300
+        speechRequestTimeoutMs: 300000
+        speechIdleShutdownMs: 600000
+        speechCacheMaxBytes: 1073741824

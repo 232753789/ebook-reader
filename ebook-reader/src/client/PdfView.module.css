@@ -1,0 +1,65 @@
+/* PDF page column: pages centered on the reader surface, each on a light sheet. */
+
+.scroller {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 0 48px;
+  outline: none;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.page {
+  position: relative;
+  margin: 0 auto 16px;
+  background: var(--dsw-alias-bg-base);
+  box-shadow: 0 0 0 1px var(--dsw-alias-border-l2);
+  cursor: text;
+}
+
+.canvas {
+  display: block;
+}
+
+.pageNumber {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+/* The reading line: a translucent accent band multiplied over the page, which stays light in both themes. */
+.line {
+  position: absolute;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 30%, transparent);
+  box-shadow: inset 3px 0 0 var(--dsw-alias-state-business-primary);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: top 120ms var(--ds-ease-in-out), height 120ms var(--ds-ease-in-out);
+}
+
+.noText {
+  position: absolute;
+  inset: auto 12px 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--dsw-alias-bg-layer-2);
+  /* Elevated surface: the scrollbar thumb takes the l2 elevation tokens, which
+     inherit down to whatever draws a bar here (see ui-theme styles/scrollbar.css
+     for the rebinding contract). */
+  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
+  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    transition: none;
+  }
+}
