@@ -13,12 +13,14 @@ pnpm install
 pnpm run build
 ```
 
-The sidebar tab and the center-column view use the `sidebar.tab` slot of [ui-sidebar](../../client/ui-sidebar/README.md) and the `main.view` slot of [ui-layout](../../client/ui-layout/README.md); a Web app built from this repository carries both.
+The sidebar tab and the center-column view use the `sidebar.tab` slot of `@deepseek-ai/dsh-client-ui-sidebar` and the `main.view` slot of `@deepseek-ai/dsh-client-ui-layout`; the DSH Web app carries both.
 
 ## Register it into a profile
 
+Run these from a DeepSeek Harness checkout, pointing at this package directory:
+
 ```bash
-pnpm dsh plugin --profile web add ./packages/ebook-reader/ebook-reader
+pnpm dsh plugin --profile web add <path-to-this-repo>/ebook-reader
 pnpm dsh web
 ```
 

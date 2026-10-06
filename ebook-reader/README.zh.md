@@ -13,12 +13,14 @@ pnpm install
 pnpm run build
 ```
 
-侧边栏 tab 与中间栏视图分别使用 [ui-sidebar](../../client/ui-sidebar/README.md) 的 `sidebar.tab` slot 和 [ui-layout](../../client/ui-layout/README.md) 的 `main.view` slot；从本仓库构建的 Web 应用两者都具备。
+侧边栏 tab 与中间栏视图分别使用 `@deepseek-ai/dsh-client-ui-sidebar` 的 `sidebar.tab` slot 和 `@deepseek-ai/dsh-client-ui-layout` 的 `main.view` slot；DSH Web 应用两者都具备。
 
 ## 注册进 profile
 
+在 DeepSeek Harness 仓库中执行，路径指向本包目录：
+
 ```bash
-pnpm dsh plugin --profile web add ./packages/ebook-reader/ebook-reader
+pnpm dsh plugin --profile web add <本仓库路径>/ebook-reader
 pnpm dsh web
 ```
 
