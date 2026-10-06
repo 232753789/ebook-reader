@@ -1,9 +1,9 @@
 """Memory-release tests for the TTS worker.
 
 These exercise `release_memory` against stand-in torch modules, so they need neither torch nor the
-Qwen weights. They are not part of the repository's `pnpm run test` lane; run them directly:
+Qwen weights. Run them directly from the repository root:
 
-    python3 -m pytest packages/ebook-reader/ebook-reader/python
+    python3 -m pytest ebook-reader/python
 """
 
 from __future__ import annotations
